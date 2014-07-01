@@ -157,10 +157,25 @@ Process
 
             #Create Temp directory
             Write-Debug "Creating C:\Temp directory"
-            Try { $discard = New-Item -Path "\\$comp\c$\" -Name "Temp" -ItemType Directory -ErrorAction Stop }  Catch { $ErrCode += 1 }
+            Try 
+            {
+                $discard = New-Item -Path "\\$comp\c$\" `
+                    -Name "Temp" `
+                    -ItemType Directory `
+                    -ErrorAction Stop
+            }
+            Catch { $ErrCode += 1 }
+            
             #Create Antivirus sub-directory
             Write-Debug "Creating C:\Temp\Antivirus directory"
-            Try { $discard = New-Item -Path "\\$comp\c$\Temp\" -Name "Antivirus" -ItemType Directory -ErrorAction Stop } Catch { $ErrCode += 2}
+            Try
+            {
+                $discard = New-Item -Path "\\$comp\c$\Temp\" `
+                    -Name "Antivirus" `
+                    -ItemType Directory `
+                    -ErrorAction Stop
+            }
+            Catch { $ErrCode += 2}
 
             $discard = Copy-Item -Path $av -Destination "\\$comp\$LocalPath" -ErrorAction Stop
         }
@@ -181,7 +196,11 @@ Process
             $InstallString = "\\$comp\$avPath $argList"
             Write-Debug "InstallString: $InstallString"
 
-            $Process = Invoke-WmiMethod -ComputerName $comp -Class Win32_Process -Name Create -ArgumentList $InstallString
+            $Process = Invoke-WmiMethod -ComputerName $comp `
+                -Class Win32_Process `
+                -Name Create `
+                -ArgumentList $InstallString `
+                -ErrorAction Stop
 
             If ($Process.ReturnValue -eq 0)
             {
