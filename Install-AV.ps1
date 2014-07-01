@@ -1,3 +1,19 @@
+﻿<#
+﻿An explanation of error codes returned
+﻿
+﻿Code           Error
+﻿0              No error
+﻿1.0            Unable to copy installer to local machine
+﻿1.1            Unable to copy becuase Temp directory couldn't be created
+﻿1.2            Unable to copy because Antivirus directory couldn't be created
+﻿1.3            Unable to copy because Temp and Antivirus directories couldn't be created
+﻿2              Unable to start install process
+﻿90             Computer is offline
+﻿900            Unable to get machine OS to determine correct install
+﻿999            Found an OS without a defined AV installer (not XP or 7)
+﻿
+﻿Error: #       Install process failed, # is the process return value
+﻿#>
 ﻿[CmdletBinding()]
 Param
 (
