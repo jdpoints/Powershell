@@ -55,6 +55,7 @@ Process
             $temp.Installed = "Offline"
             $temp.Code = 90
             Write-Debug $temp
+            $Offline += $temp
             Continue
         }
 
