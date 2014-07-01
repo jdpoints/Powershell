@@ -9,6 +9,7 @@
 ﻿1.3            Unable to copy because Temp and Antivirus directories couldn't be created
 ﻿2              Unable to start install process
 ﻿90             Computer is offline
+﻿99             Installer started successfully but program not showing as installed
 ﻿900            Unable to get machine OS to determine correct install
 ﻿999            Found an OS without a defined AV installer (not XP or 7)
 ﻿
